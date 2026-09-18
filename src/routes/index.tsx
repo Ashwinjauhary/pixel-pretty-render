@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteShell } from "@/components/site-shell";
-import { SIGN_VOCABULARY } from "@/lib/sign-vocabulary";
-import heroImage from "@/assets/signbridge-hero.jpg";
+import { Video, Mic, Volume2, ShieldAlert, ArrowRight, Activity } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -26,157 +25,124 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const stats = [
-  { value: "18M", label: "profoundly Deaf Indians relying on ISL" },
-  { value: "~250", label: "certified ISL interpreters in the country" },
-  { value: "1 : 72,000", label: "interpreter to Deaf-person ratio" },
-];
-
-const steps = [
-  {
-    step: "01",
-    title: "Camera reads the signing",
-    body: "Hand and pose landmarks are tracked in the browser at video frame rate — no server round-trip, no upload.",
-  },
-  {
-    step: "02",
-    title: "Sign becomes caption and voice",
-    body: "A lightweight classifier maps landmarks to a closed vocabulary, then speaks the phrase into the call for the hearing participant.",
-  },
-  {
-    step: "03",
-    title: "Speech comes back as cues",
-    body: "The hearing side's speech is transcribed live and reduced to short, readable sign cues for the Deaf participant.",
-  },
-];
-
 function Home() {
   return (
     <SiteShell>
-      <section className="surface-veil border-b border-border/70">
-        <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:py-24">
-          <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs text-muted-foreground">
-              <span className="size-1.5 rounded-full bg-accent pulse-live" aria-hidden />
-              Grand Hack IPEC 2026 · Phase-1 prototype
-            </span>
-            <h1 className="mt-6 text-4xl leading-[1.05] font-semibold sm:text-5xl lg:text-6xl">
-              250 interpreters for <span className="text-gradient-signal">18 million</span>{" "}
-              Deaf Indians.
-            </h1>
-            <p className="mt-5 max-w-xl text-lg text-muted-foreground">
-              SignBridge puts a live interpreter in every video call — signing becomes
-              captions and speech, speech becomes sign cues, both directions in real time.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Link
-                to="/call"
-                className="rounded-lg bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-                style={{ boxShadow: "var(--shadow-lift)" }}
-              >
-                Open the live prototype
-              </Link>
-              <Link
-                to="/research"
-                className="rounded-lg border border-border bg-card px-5 py-3 text-sm font-medium text-foreground transition-colors hover:bg-surface"
-              >
-                Read the research
-              </Link>
-            </div>
-            <p className="mt-4 text-xs text-muted-foreground">
-              Runs entirely in your browser. Camera frames never leave the device.
-            </p>
-          </div>
+      <div className="relative min-h-[calc(100vh-73px)] bg-[#050906] overflow-hidden font-sans text-slate-200">
+        
+        {/* Background Layer: The GTA image with strong styling */}
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-30 mix-blend-luminosity scale-105"
+          style={{ backgroundImage: "url('/gta_bg.jpg')" }}
+        />
+        
+        {/* Cinematic Vignette & Gradient */}
+        <div className="absolute inset-0 z-10 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_#050906_100%)] pointer-events-none" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#050906] via-[#050906]/60 to-transparent pointer-events-none" />
 
-          <div className="relative">
-            <img
-              src={heroImage}
-              alt="Two hands mid-sign with glowing landmark tracking lines"
-              width={1408}
-              height={1008}
-              className="w-full rounded-3xl border border-border object-cover"
-              style={{ boxShadow: "var(--shadow-lift)" }}
-            />
-          </div>
-        </div>
-      </section>
+        <div className="relative z-20 max-w-7xl mx-auto px-6 py-24 min-h-[calc(100vh-73px)] flex flex-col justify-center">
+          
+          <div className="flex flex-col lg:flex-row gap-20 items-center">
+            
+            {/* Left Column: Hero Text */}
+            <div className="flex-1 space-y-10 relative">
+              <div className="absolute -inset-10 bg-green-500/10 blur-3xl rounded-full opacity-50 mix-blend-screen pointer-events-none" />
+              
+              <div className="relative">
+                <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-[#4CAF50]/30 bg-[#4CAF50]/10 backdrop-blur-md mb-8">
+                  <span className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#4CAF50] opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-[#4CAF50]"></span>
+                  </span>
+                  <span className="font-beckett font-medium tracking-[0.2em] text-lg text-[#4CAF50] uppercase">Grand Hack IPEC 2026</span>
+                </div>
+                
+                <h1 className="text-7xl lg:text-[7rem] font-black uppercase tracking-tighter leading-[0.85] text-transparent bg-clip-text bg-gradient-to-br from-white via-gray-200 to-gray-600 drop-shadow-2xl">
+                  <span className="font-pricedown lowercase">The Silent</span> <br/>
+                  <span className="font-diploma capitalize text-transparent bg-clip-text bg-gradient-to-br from-[#4CAF50] to-[#2E7D32] drop-shadow-[0_0_25px_rgba(76,175,80,0.4)]">Gap in Tech</span>
+                </h1>
+                
+                <p className="mt-8 text-xl lg:text-2xl text-gray-400 max-w-2xl font-light leading-relaxed border-l-4 border-[#4CAF50]/50 pl-6">
+                  India has <span className="text-[#FFC107] font-semibold drop-shadow-[0_0_8px_rgba(255,193,7,0.3)]">63M</span> people with hearing impairment, and <span className="text-[#FFC107] font-semibold drop-shadow-[0_0_8px_rgba(255,193,7,0.3)]">18M</span> rely on ISL. 
+                  Yet, we only have <span className="text-[#FFC107] font-semibold drop-shadow-[0_0_8px_rgba(255,193,7,0.3)]">250</span> certified interpreters nationwide. <br/>
+                  <span className="block mt-4 text-white font-medium">Interpreter-to-Deaf ratio: <span className="text-[#FFC107] font-bold text-3xl ml-2 tracking-tight">1:72,000</span></span>
+                </p>
 
-      <section className="border-b border-border/70">
-        <div className="mx-auto grid max-w-6xl gap-8 px-5 py-14 sm:grid-cols-3">
-          {stats.map((s) => (
-            <div key={s.label}>
-              <div className="font-display text-3xl font-semibold text-primary sm:text-4xl">
-                {s.value}
+                <div className="pt-12 flex gap-4">
+                  <Link to="/call" className="group relative inline-flex items-center gap-4 px-10 py-5 bg-[#4CAF50] text-black font-bank text-2xl uppercase tracking-widest transition-all duration-300 hover:shadow-[0_0_40px_rgba(76,175,80,0.6)] hover:-translate-y-1 overflow-hidden">
+                    <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+                    <span className="relative z-10 flex items-center gap-3">
+                      Start Translation <ArrowRight className="group-hover:translate-x-2 transition-transform duration-300" />
+                    </span>
+                  </Link>
+                </div>
               </div>
-              <p className="mt-2 text-sm text-muted-foreground">{s.label}</p>
             </div>
-          ))}
-        </div>
-      </section>
 
-      <section className="border-b border-border/70">
-        <div className="mx-auto max-w-6xl px-5 py-16">
-          <h2 className="text-2xl font-semibold sm:text-3xl">How it works</h2>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {steps.map((s) => (
-              <div key={s.step} className="panel p-6">
-                <div className="font-display text-sm text-accent">{s.step}</div>
-                <h3 className="mt-3 text-lg font-semibold">{s.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{s.body}</p>
+            {/* Right Column: Glass Cards Grid */}
+            <div className="flex-1 w-full relative">
+              
+              <div className="grid gap-6">
+                
+                {/* Horizontal Card 1 */}
+                <div className="group relative p-8 rounded-2xl bg-black/60 backdrop-blur-xl border border-white/10 hover:border-[#4CAF50]/50 transition-all duration-500 overflow-hidden hover:bg-black/80 hover:scale-[1.02] shadow-2xl">
+                  <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-[#4CAF50] to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="flex gap-6 items-start">
+                    <div className="p-5 rounded-2xl bg-[#4CAF50]/10 border border-[#4CAF50]/20 group-hover:bg-[#4CAF50]/20 group-hover:border-[#4CAF50]/40 transition-colors shrink-0 shadow-[0_0_20px_rgba(76,175,80,0.1)]">
+                      <Volume2 className="w-8 h-8 text-[#4CAF50]" />
+                    </div>
+                    <div>
+                      <h3 className="font-bank text-3xl uppercase tracking-wider text-white mb-3">Sign to Speech</h3>
+                      <p className="text-gray-400 leading-relaxed text-lg font-light">
+                        Camera captures signing. The engine recognizes gestures in real-time and injects <strong className="text-gray-200">live captions</strong> plus <strong className="text-gray-200">synthesized speech</strong> into the call.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Horizontal Card 2 */}
+                <div className="group relative p-8 rounded-2xl bg-black/60 backdrop-blur-xl border border-white/10 hover:border-[#FFC107]/50 transition-all duration-500 overflow-hidden hover:bg-black/80 hover:scale-[1.02] shadow-2xl xl:-translate-x-12">
+                  <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-[#FFC107] to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="flex gap-6 items-start">
+                    <div className="p-5 rounded-2xl bg-[#FFC107]/10 border border-[#FFC107]/20 group-hover:bg-[#FFC107]/20 group-hover:border-[#FFC107]/40 transition-colors shrink-0 shadow-[0_0_20px_rgba(255,193,7,0.1)]">
+                      <Mic className="w-8 h-8 text-[#FFC107]" />
+                    </div>
+                    <div>
+                      <h3 className="font-bank text-3xl uppercase tracking-wider text-white mb-3">Speech to Sign</h3>
+                      <p className="text-gray-400 leading-relaxed text-lg font-light">
+                        Hearing participant's speech is transcribed via Web Speech API and presented as <strong className="text-gray-200">highly simplified text</strong> and <strong className="text-gray-200">icon cues</strong>.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Horizontal Card 3 */}
+                <div className="group relative p-8 rounded-2xl bg-black/60 backdrop-blur-xl border border-white/10 hover:border-white/30 transition-all duration-500 overflow-hidden hover:bg-black/80 hover:scale-[1.02] shadow-2xl">
+                  <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-white to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="flex gap-6 items-start">
+                    <div className="p-5 rounded-2xl bg-white/5 border border-white/10 group-hover:bg-white/10 transition-colors shrink-0">
+                      <Activity className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-bank text-3xl uppercase tracking-wider text-white mb-3 flex flex-wrap items-center gap-4">
+                        Phase-1 MVP
+                        <span className="font-sans text-xs bg-red-500/10 text-red-400 px-3 py-1.5 rounded-full border border-red-500/20 tracking-widest font-semibold flex items-center gap-2">
+                          <ShieldAlert className="w-3 h-3" /> HONEST SCOPING
+                        </span>
+                      </h3>
+                      <p className="text-gray-400 leading-relaxed text-lg font-light">
+                        A closed vocabulary of <strong className="text-white">20-35 high-frequency signs</strong>. We avoid the unsolved research problem of open-vocab translation.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-b border-border/70">
-        <div className="mx-auto max-w-6xl px-5 py-16">
-          <h2 className="text-2xl font-semibold sm:text-3xl">
-            Phase-1 vocabulary, stated plainly
-          </h2>
-          <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
-            This is a closed vocabulary of high-frequency classroom and meeting intents —
-            not open-vocabulary translation. Sentence-level ISL grammar is an open research
-            problem and we do not claim to solve it.
-          </p>
-          <ul className="mt-8 flex flex-wrap gap-3">
-            {SIGN_VOCABULARY.map((s) => (
-              <li
-                key={s.phrase}
-                className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm"
-              >
-                <span aria-hidden className="text-lg">
-                  {s.glyph}
-                </span>
-                {s.phrase}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section>
-        <div className="mx-auto max-w-6xl px-5 py-16">
-          <div
-            className="panel flex flex-col items-start gap-6 p-8 sm:flex-row sm:items-center sm:justify-between"
-            style={{ backgroundImage: "var(--gradient-veil)" }}
-          >
-            <div>
-              <h2 className="text-2xl font-semibold">Try it with your own camera</h2>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Hold a sign for about a second and watch it land as a caption and a spoken
-                phrase.
-              </p>
             </div>
-            <Link
-              to="/call"
-              className="rounded-lg bg-primary px-5 py-3 text-sm font-medium whitespace-nowrap text-primary-foreground transition-opacity hover:opacity-90"
-            >
-              Start the call
-            </Link>
+
           </div>
         </div>
-      </section>
+      </div>
     </SiteShell>
   );
 }
